@@ -1,2 +1,6 @@
 #!/bin/bash
-find . -type f -iname "*.gif" -printf "%s %f\n" | sort -n | awk '{print $2}'
+
+find . -type f -iname "*.gif" | while read filename; do
+    echo "${filename%.gif}"
+done | sort -f
+
