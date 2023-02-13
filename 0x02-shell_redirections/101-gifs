@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f \( -name "*.gif" \) | while read file; do filename=$(echo "$file" | sed 's/\(.*\)\.gif/\1/') size=$(stat --printf="%s" "$file") echo "$size $filename" done | sort -n | awk '{print $2}'
+find . -type f -iname "*.gif" -printf "%s %f\n" | sort -n | awk '{print $2}'
